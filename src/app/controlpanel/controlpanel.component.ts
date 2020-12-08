@@ -1,15 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {faArrowAltCircleRight} from '@fortawesome/free-solid-svg-icons';
+import {faQrcode, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 
 import { CheckInService } from '../_services/check-in.service';
 
 @Component({
   selector: 'app-controlpanel',
   templateUrl: './controlpanel.component.html',
-  styleUrls: ['./controlpanel.component.css']
+  styleUrls: ['./controlpanel.component.css',
+  '../_styles/styles.css']
 })
 export class ControlpanelComponent implements OnInit {
-    arrow = faArrowAltCircleRight;
+    qrCode = faQrcode;
+    question = faQuestionCircle;
 
   /** Properties */
   currentPosition = {

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../_services/user.service';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { InMemoryService } from "../_services/in-memory.service";
+import { InMemoryService } from '../_services/in-memory.service';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
-  styleUrls: ['./my-profile.component.css']
+  styleUrls: ['../_styles/styles.css', './my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
   photoUrl = this.authfire.auth.currentUser.photoURL;

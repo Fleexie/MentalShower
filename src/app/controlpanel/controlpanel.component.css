@@ -1,16 +1,28 @@
-header{
+.divider{
     display: flex;
-    flex-direction: column;
+    flex-wrap: nowrap;
+    padding: 0 15%;
     justify-content: center;
     align-items: center;
-    padding: 1rem 0;
+    width: 80%;
+    margin: auto;
 }
-header h1{
-    font-size: 2rem;
-    font-weight: bold;
+.divider hr{
+    width: 100%;
+    color: white;
 }
+.divider span{
+    color: white;
+    opacity: 70%;
+    margin: 0 10px;
+    font-size: 1.3rem;
+}
+
 .zoneContainer{
 padding: 15px;
 }
 
 
+mat-card{
+    margin: auto;
+}

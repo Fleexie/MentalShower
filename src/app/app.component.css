@@ -6,14 +6,6 @@ app-nav{
   z-index: 100;
 }
 
-.example-spacer {
-    flex: 1 1 auto;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
 
 
 
@@ -21,7 +13,7 @@ a {
     section{
         display: flex;
         justify-content: space-between;
-        background-color: #3f51b5 ;
+        background-color: #565896 ;
         padding: 5px 0;
     }
     app-nav{

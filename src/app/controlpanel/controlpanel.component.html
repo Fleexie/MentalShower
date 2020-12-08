@@ -1,13 +1,27 @@
+<fa-icon [icon]="question" class="guide"></fa-icon>
+
 <header>
   <h1>Check In</h1>
   <p>Current Room: {{currentPosition.currentRoom || '---'}} | Current Zone: {{currentPosition.currentZone || '---'}}</p>
 </header>
+
+<mat-card>
+  <fa-icon [icon]="qrCode" class="icon"></fa-icon>
+  <mat-card-title>QR scanner</mat-card-title>
+</mat-card>
+
+<div class="divider">
+  <hr>
+  <span>OR</span>
+  <hr>
+</div>
+
 <section class="zoneContainer">
   <app-zone-select [(position)]="currentPosition">
 <!--    Component for zone selection -->
   </app-zone-select>
 
-  <app-qr>
-<!--    Component for QR scanner -->
-  </app-qr>
+  <!--<app-qr>-->
+<!--&lt;!&ndash;    Component for QR scanner &ndash;&gt;-->
+  <!--</app-qr>-->
 </section>

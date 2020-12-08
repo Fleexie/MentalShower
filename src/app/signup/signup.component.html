@@ -1,6 +1,6 @@
-
-<mat-card id="logincard">
-    <mat-card-title id="userinfo">Create Account</mat-card-title>
+<header>
+    <h1>Create Account</h1>
+</header>
     <form [formGroup]="form" (ngSubmit)="register()">
        
         <div class="form-group">
@@ -44,10 +44,7 @@
                 {{invalidLoginMessage}}  
                 </div>  
         </div>
-        <div class="button">
-            <button class="register-button" type="submit" mat-button>save</button>
-        </div>
+            <button class="register-button" type="submit" mat-button>Create Account</button>
 
     </form>
 
-</mat-card>
