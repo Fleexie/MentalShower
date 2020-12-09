@@ -15,23 +15,23 @@ export class CheckInService {
   constructor(private conn: HttpClient) { }
 
   /** Rooms */
-  getRooms(){
+  getRooms() {
     return this.conn.get(roomUrl);
   }
   /** Zones */
-  getZones(roomID){
+  getZones(roomID) {
     return this.conn.get(`${zoneByRoomUrl}/${roomID}`, roomID);
   }
   /** Chairs */
-  getSeats(zoneID){
+  getSeats(zoneID) {
     return this.conn.get(`${seatByZoneUrl}/${zoneID}`, zoneID);
   }
   /** User */
-  getUser(){
+  getUser() {
     return 'guest';
   }
   /** Preset */
-  getPreset(){
+  getPreset() {
     return 'preset';
   }
 

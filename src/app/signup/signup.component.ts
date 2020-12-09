@@ -13,8 +13,10 @@ import md5 from 'md5';
 export class SignupComponent implements OnInit {
 
   form: FormGroup;
-  invalidLoginMessage;
+  invalidLoginMessage = false;
   submitted = false;
+  emails = [];
+  Users: any;
   constructor(
     fb: FormBuilder,
     private loginService: LoginService,
@@ -35,21 +37,43 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getAllUsers();
     this.route.params.subscribe(params => {
       this.invalidLoginMessage = params.invalidLoginMessage;
     });
   }
+  // uses a regex to check if email is valid
+  isValidEmail(email) {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  }
+  getAllUsers() {
+    this.loginService.getAllUsers().subscribe((data) => {
+      this.Users = data;
+    });
+  }
 
   register() {
-    const photoUrl = `http://gravatar.com/avatar/${md5(
-      this.form.controls.email.value
-    )}?d=identicon`;
-    const result = this.loginService.signup(this.form.controls.username.value, this.form.controls.email.value,
-      this.form.controls.password.value, photoUrl);
-    if (!result) {
-      this.form.controls.password.setErrors({
-        invalidLogin: true
-      });
+    const userData = {
+      email: this.form.controls.email.value,
+      username: this.form.controls.username.value,
+      password: this.form.controls.password.value,
+    };
+    if (!this.isValidEmail(userData.email)) {
+      return this.invalidLoginMessage = true;
+    }
+    else {
+      this.loginService.userRegistration(userData).subscribe(
+        (data) => {
+          const response: any = data;
+          if (response.email === userData.email) {
+            this.router.navigate(['profile']);
+          }
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
     }
   }
 
