@@ -6,20 +6,20 @@
     <mat-card class="example-card">
         <mat-card-header>
             <div mat-card-avatar class="example-header-image">
-                <img [src]='photoUrl'>
+
             </div>
-            <mat-card-title id="title">{{name}}</mat-card-title>
+            <mat-card-title id="title"></mat-card-title>
             <button class="user-button" (click)="logout()" mat-button>LogOut</button>
 
         </mat-card-header>
 
         <mat-card-content>
-            <p>Provided Email Address: {{email}}</p>
+            <p>Provided Email Address:</p>
             <h3>Saved Presets</h3>
             <ul>
-                <li>Room:{{userData[0].room}}</li>
-                <li>Zone:{{userData[0].zone}}</li>
-                <li>AirFlow:{{userData[0].airflow}}</li>
+                <li>Room:</li>
+                <li>Zone:</li>
+                <li>AirFlow:</li>
             </ul>
         </mat-card-content>
 
