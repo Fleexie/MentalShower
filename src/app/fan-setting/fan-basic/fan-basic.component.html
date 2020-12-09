@@ -2,15 +2,15 @@
   <h2>How do you feel?</h2>
 </header>
 <section class="container">
-    <mat-card class="card">
+    <mat-card class="card" (click)="coldClicked('coldSetting')">
       <fa-icon [icon]="cold" class="icon cold"></fa-icon>
       <p>Cold</p>
     </mat-card>
-    <mat-card class="card">
+    <mat-card class="card" (click)="coldClicked('goodSetting')">
       <fa-icon [icon]="good" class="icon good"></fa-icon>
       <p>Good</p>
     </mat-card>
-    <mat-card class="card">
+    <mat-card class="card" (click)="coldClicked('warmSetting')">
       <fa-icon [icon]="warm" class="icon warm"></fa-icon>
       <p>Warm</p>
     </mat-card>

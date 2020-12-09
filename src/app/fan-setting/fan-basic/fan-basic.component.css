@@ -39,3 +39,16 @@ fa-icon.icon{
     background: rgb(181,75,18);
     background: radial-gradient(circle, rgba(181,75,18,1) 0%, rgba(199,65,53,1) 52%, rgba(255,185,138,1) 100%);
 }
+
+.Cold{
+    color: rgb(23,18,181);
+    font-weight: bold;
+}
+.Good{
+    color: rgb(18,181,72);
+    font-weight: bold;
+}
+.Warm{
+    color: rgb(181,75,18);
+    font-weight: bold;
+}
