@@ -29,6 +29,7 @@
     "@zxing/browser": "0.0.5",
     "@zxing/library": "^0.18.3",
     "@zxing/ngx-scanner": "^3.0.1",
+    "angular-shepherd": "^0.7.0",
     "angularfire2": "^5.4.2",
     "firebase": "^7.24.0",
     "md5": "^2.3.0",
