@@ -1,15 +1,15 @@
-<mat-expansion-panel
-  class="dropDowns"
-  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      QR Scan
-    </mat-panel-title>
-    <mat-panel-description>
-      Scan QR Zone Code
-    </mat-panel-description>
-  </mat-expansion-panel-header>
+<!--<mat-expansion-panel-->
+  <!--class="dropDowns"-->
+  <!--(opened)="panelOpenState = true"-->
+  <!--(closed)="panelOpenState = false">-->
+  <!--<mat-expansion-panel-header>-->
+    <!--<mat-panel-title>-->
+      <!--QR Scan-->
+    <!--</mat-panel-title>-->
+    <!--<mat-panel-description>-->
+      <!--Scan QR Zone Code-->
+    <!--</mat-panel-description>-->
+  <!--</mat-expansion-panel-header>-->
   <zxing-scanner
     [torch]="torchEnabled"
     [device]="deviceCurrent"
@@ -21,4 +21,4 @@
     (camerasFound)="onCamerasFound($event)"
     (torchCompatible)="onTorchCompatible($event)">
   </zxing-scanner>
-</mat-expansion-panel>
+ <!--</mat-expansion-panel>-->
