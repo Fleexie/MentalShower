@@ -1,22 +1,22 @@
-<fa-icon [icon]="question" class="guide"></fa-icon>
+<fa-icon [icon]="question" class="guide" (click)="tourStart()"></fa-icon>
 <header>
     <h1>Welcome</h1>
     <h2>Guest</h2>
 </header>
 <section class="indexContainer">
-  <mat-card routerLink="cp">
+  <mat-card routerLink="cp" class="first-element">
     <fa-icon [icon]="chair" class="icon"></fa-icon>
     <mat-card-title>Check In</mat-card-title>
   </mat-card>
-  <mat-card routerLink="cp/fanSetting">
+  <mat-card routerLink="cp/fanSetting" class="second-element">
     <fa-icon [icon]="fan" class="icon"></fa-icon>
     <mat-card-title>Temperature</mat-card-title>
   </mat-card>
-  <mat-card routerLink="learningelement">
+  <mat-card routerLink="learningelement" class="third-element">
     <fa-icon [icon]="cap" class="icon"></fa-icon>
     <mat-card-title>Learning</mat-card-title>
   </mat-card>
-  <mat-card routerLink="profile">
+  <mat-card routerLink="profile" class="fourth-element">
     <fa-icon [icon]="user" class="icon"></fa-icon>
     <mat-card-title>Profile</mat-card-title>
   </mat-card>
