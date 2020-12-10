@@ -1,11 +1,6 @@
 <header>
-    <h1>Login</h1>
-    <p>Some Text</p>
+  <h1>Login</h1>
 </header>
-<mat-card>
-    <mat-card-title id="userinfo">
-        Login
-    </mat-card-title>
     <form [formGroup]="form" (ngSubmit)="login()">
         <div class="form-group">
             <p>
@@ -33,9 +28,8 @@
                 </div>
             </div>
         </div>
-        <div class="user-button">
-            <button class="user-button" type="submit" mat-button>Login</button>
-        </div>
-        <button class="register-button" type="submit" (click)="register()" mat-button>New User ? Register</button>
-    </form>
-</mat-card>
+      <button class="user-button" type="submit" mat-button>Login</button>
+
+    <button class="register-button" type="submit" (click)="register()" mat-button>New User ? Register</button>
+  </form>
+

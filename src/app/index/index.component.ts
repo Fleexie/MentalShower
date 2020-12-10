@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
   faFan,
   faGraduationCap,
@@ -6,17 +6,20 @@ import {
   faChair,
   faUser,
   faCalendarAlt,
-  faAddressCard
+  faAddressCard,
+    faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../_services/user.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { ShepherdService } from 'angular-shepherd';
 
 @Component({
   selector: 'app-index',
   templateUrl: './index.component.html',
-  styleUrls: ['./index.component.css']
+  styleUrls: ['../_styles/styles.css', './index.component.css'
+  ]
 })
-export class IndexComponent implements OnInit {
+export class IndexComponent implements OnInit, AfterViewInit {
   fan = faFan;
   chair = faChair;
   cap = faGraduationCap;
@@ -24,10 +27,149 @@ export class IndexComponent implements OnInit {
   user = faUser;
   calender = faCalendarAlt;
   contact = faAddressCard;
+  question = faQuestionCircle;
 
   userName = 'Guest12314';
-  constructor(private loginuser: LoginService, private authfire: AngularFireAuth) { }
+  constructor(private loginuser: LoginService, private authfire: AngularFireAuth,
+              private shepherdService: ShepherdService) { }
 
+              /* Tour method. */
+    ngAfterViewInit() {
+        this.shepherdService.defaultStepOptions = {
+            scrollTo: false,
+            cancelIcon: {
+                enabled: true
+            }
+        };
+        this.shepherdService.modal = true;
+        this.shepherdService.confirmCancel = false;
+        this.shepherdService.addSteps([
+            {
+                id: 'intro',
+                attachTo: {
+                    element: '.first-element',
+                    on: 'bottom'
+                },
+                buttons: [
+                    {
+                        classes: 'shepherd-button-primary',
+                        text: 'Next',
+                        type: 'next'
+                    }
+                ],
+                cancelIcon: {
+                    enabled: true
+                },
+                classes: 'tour custom-class-name-2',
+                highlightClass: 'highlight',
+                scrollTo: false,
+                title: 'Check In',
+                text: ['At check in you can select what room you are in and what climate zone'],
+                when: {
+                    show: () => {
+                        console.log('show step');
+                    },
+                    hide: () => {
+                        console.log('hide step');
+                    }
+                }
+            },
+            {
+                id: 'intro',
+                attachTo: {
+                    element: '.second-element',
+                    on: 'bottom'
+                },
+                buttons: [
+                    {
+                        classes: 'shepherd-button-primary',
+                        text: 'Next',
+                        type: 'next'
+                    }
+                ],
+                cancelIcon: {
+                    enabled: true
+                },
+                classes: 'tour custom-class-name-2',
+                highlightClass: 'highlight',
+                scrollTo: false,
+                title: 'Fan Settings',
+                text: ['At fan settings you can choose the ventilation speed'],
+                when: {
+                    show: () => {
+                        console.log('show step');
+                    },
+                    hide: () => {
+                        console.log('hide step');
+                    }
+                }
+            },
+            {
+                id: 'intro',
+                attachTo: {
+                    element: '.third-element',
+                    on: 'top'
+                },
+                buttons: [
+                    {
+                        classes: 'shepherd-button-primary',
+                        text: 'Next',
+                        type: 'next'
+                    }
+                ],
+                cancelIcon: {
+                    enabled: true
+                },
+                classes: 'tour custom-class-name-2',
+                highlightClass: 'highlight',
+                scrollTo: false,
+                title: 'Learning',
+                text: ['In learning you can learn a bit more about this app'],
+                when: {
+                    show: () => {
+                        console.log('show step');
+                    },
+                    hide: () => {
+                        console.log('hide step');
+                    }
+                }
+            },
+            {
+                id: 'intro',
+                attachTo: {
+                    element: '.fourth-element',
+                    on: 'top'
+                },
+                buttons: [
+                    {
+                        classes: 'shepherd-button-primary',
+                        text: 'End Tour',
+                        type: 'next'
+                    }
+                ],
+                cancelIcon: {
+                    enabled: true
+                },
+                classes: 'tour custom-class-name-2',
+                highlightClass: 'highlight',
+                scrollTo: false,
+                title: 'Profile',
+                text: ['In profile you can change your personal settings if you are logged in'],
+                when: {
+                    show: () => {
+                        console.log('show step');
+                    },
+                    hide: () => {
+                        console.log('hide step');
+                    }
+                }
+            }
+        ]);
+    }
+    /* Method to start the tour, click questionmark! */
+    tourStart(){
+    this.shepherdService.start();
+    }
   ngOnInit() {
 //    this.personsname = this.authfire.auth.currentUser.displayName;
   }

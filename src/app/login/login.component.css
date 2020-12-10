@@ -3,17 +3,12 @@
 /*    justify-content: center;*/
 /*    margin: 100px 0px;*/
 /*}*/
-header{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem 0;
+
+form{
+    width: 80%;
+    margin: auto;
 }
-header h1{
-  font-size: 2rem;
-  font-weight: bold;
-}
+
 .mat-form-field {
     width: 100%;
 }
@@ -41,24 +36,46 @@ mat-card-content {
     /* Red */
 }
 
-mat-card {
-    background-color: rgb(240, 245, 245);
-  margin: 15px;
-}
 
 .user-button {
     color: white;
-    width: 100%;
-    background-color: #3f51b5;
     display: flex;
     justify-content: center;
+    border: solid white 2px;
+    padding: .3rem 1.8rem;
+    margin: auto;
+    font-size: 1rem;
 }
 
 .register-button {
     color: white;
     width: 100%;
-    background-color: #3f51b5;
     display: flex;
     justify-content: center;
     margin-top: 5px;
+}
+
+input{
+    color: white;
+    padding: .3rem;
+    background-color: rgba(46, 80, 125, 0.5);
+    font-size: 1.5rem;
+}
+
+::ng-deep .mat-form-field .mat-form-field-label{
+    color: white;
+}
+
+/* Change label color on focused */
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: white !important;
+}
+
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: white !important;
+}
+
+::ng-deep .mat-form-field-underline{
+    background-color: white !important;
 }

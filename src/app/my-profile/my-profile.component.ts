@@ -7,7 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
-  styleUrls: ['./my-profile.component.css']
+  styleUrls: ['../_styles/styles.css', './my-profile.component.css']
 })
 export class MyProfileComponent implements OnInit {
   constructor(private userout: LoginService, private ab: InMemoryService, private router: Router) { }

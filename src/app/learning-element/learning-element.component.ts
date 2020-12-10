@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-learning-element',
   templateUrl: './learning-element.component.html',
-  styleUrls: ['./learning-element.component.css']
+  styleUrls: ['../_styles/styles.css', './learning-element.component.css']
 })
 export class LearningElementComponent {
   ifMatched;
