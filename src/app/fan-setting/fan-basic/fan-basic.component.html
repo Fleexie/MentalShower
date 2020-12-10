@@ -1,21 +1,17 @@
-<mat-card>
-  <mat-card-title>
-    How do you feel?
-  </mat-card-title>
-  <mat-card-content>
-    <mat-card class="card">
-      <span>
-        <p>Cold</p>
-        <fa-icon [icon]="arrow" class="arrow"></fa-icon>
-      </span>
+<header class="subhead">
+  <h2>How do you feel?</h2>
+</header>
+<section class="container">
+    <mat-card class="card" (click)="coldClicked('coldSetting')">
+      <fa-icon [icon]="cold" class="icon cold"></fa-icon>
+      <p>Cold</p>
     </mat-card>
-    <mat-card class="card">
+    <mat-card class="card" (click)="coldClicked('goodSetting')">
+      <fa-icon [icon]="good" class="icon good"></fa-icon>
       <p>Good</p>
-      <fa-icon [icon]="arrow" class="arrow"></fa-icon>
     </mat-card>
-    <mat-card class="card">
+    <mat-card class="card" (click)="coldClicked('warmSetting')">
+      <fa-icon [icon]="warm" class="icon warm"></fa-icon>
       <p>Warm</p>
-      <fa-icon [icon]="arrow" class="arrow"></fa-icon>
     </mat-card>
-  </mat-card-content>
-</mat-card>
+</section>
