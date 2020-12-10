@@ -17,6 +17,7 @@ export class SignupComponent implements OnInit {
   submitted = false;
   emails = [];
   Users: any;
+  isTaken = false;
   constructor(
     fb: FormBuilder,
     private loginService: LoginService,
@@ -38,9 +39,6 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAllUsers();
-    this.route.params.subscribe(params => {
-      this.invalidLoginMessage = params.invalidLoginMessage;
-    });
   }
   // uses a regex to check if email is valid
   isValidEmail(email) {
@@ -59,6 +57,9 @@ export class SignupComponent implements OnInit {
       username: this.form.controls.username.value,
       password: this.form.controls.password.value,
     };
+    if (this.Users.some(code => code.email === userData.email)) {
+      return this.isTaken = true;
+    }
     if (!this.isValidEmail(userData.email)) {
       return this.invalidLoginMessage = true;
     }
@@ -75,6 +76,9 @@ export class SignupComponent implements OnInit {
         }
       );
     }
+
+
+
   }
 
 }
