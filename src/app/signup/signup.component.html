@@ -1,8 +1,9 @@
 <header>
     <h1>Create Account</h1>
 </header>
+
     <form [formGroup]="form" (ngSubmit)="register()">
-       
+
         <div class="form-group">
             <p>
                 <mat-form-field>
@@ -40,9 +41,9 @@
                     Password cannot contain space.
                 </div>
             </div>
-            <div *ngIf ="invalidLoginMessage" class="mat-alert-danger">
-                {{invalidLoginMessage}}  
-                </div>  
+            <div *ngIf="invalidLoginMessage" class="mat-alert-danger">
+                Please write email in correct fromat.
+            </div>
         </div>
             <button class="register-button" type="submit" mat-button>Create Account</button>
 

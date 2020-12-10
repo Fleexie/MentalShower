@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { LoginService } from '../_services/user.service';
 import { PasswordValidator } from '../passwordValidator';
 import { ActivatedRoute, Router } from '@angular/router';
+import * as bcrypt from 'bcryptjs';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -22,7 +23,7 @@ export class LoginComponent {
     private router: Router,
   ) {
     this.form = fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: [
         '',
         Validators.compose([
@@ -39,24 +40,25 @@ export class LoginComponent {
   }
 
   login() {
-    const result = this.loginService.login(this.form.controls.username.value,
-      this.form.controls.password.value);
-
-    if (!result) {
-      this.form.controls.password.setErrors({
-        invalidLogin: true
+    const userData = {
+      email: this.form.controls.email.value,
+      password: this.form.controls.password.value
+    };
+    this.loginService.userlogin(userData.email).subscribe((data) => {
+      const response: any = data;
+      console.log(response);
+      bcrypt.compare(userData.password, response[0].password, (err, Data) => {
+        if (Data) {
+          this.router.navigate(['profile']);
+        } else {
+          alert('You have entered wrong credentials');
+        }
       });
-    }
-  }
+    });
 
+
+  }
   register() {
     this.router.navigate(['signup']);
   }
-
-  ngOnInit() {
-    this.route.params.subscribe(params => {
-      this.invalidLoginMessage = params['invalidLoginMessage'];
-    });
-  }
-
 }
