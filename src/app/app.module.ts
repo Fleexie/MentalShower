@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { environment } from '../environments/environment';
 import { MaterialModule } from '../material/material.module';
 import { routing } from './app-routing';
 import { AppComponent } from './app.component';
