@@ -1,38 +1,38 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
-  faFan,
-  faGraduationCap,
-  faArrowAltCircleRight,
-  faChair,
-  faUser,
-  faCalendarAlt,
-  faAddressCard,
+    faFan,
+    faGraduationCap,
+    faArrowAltCircleRight,
+    faChair,
+    faUser,
+    faCalendarAlt,
+    faAddressCard,
     faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../_services/user.service';
 import { ShepherdService } from 'angular-shepherd';
 
 @Component({
-  selector: 'app-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['../_styles/styles.css', './index.component.css'
-  ]
+    selector: 'app-index',
+    templateUrl: './index.component.html',
+    styleUrls: ['../_styles/styles.css', './index.component.css'
+    ]
 })
 export class IndexComponent implements OnInit, AfterViewInit {
-  fan = faFan;
-  chair = faChair;
-  cap = faGraduationCap;
-  arrow = faArrowAltCircleRight;
-  user = faUser;
-  calender = faCalendarAlt;
-  contact = faAddressCard;
-  question = faQuestionCircle;
+    fan = faFan;
+    chair = faChair;
+    cap = faGraduationCap;
+    arrow = faArrowAltCircleRight;
+    user = faUser;
+    calender = faCalendarAlt;
+    contact = faAddressCard;
+    question = faQuestionCircle;
 
   userName = 'Guest12314';
   constructor(private loginuser: LoginService,
               private shepherdService: ShepherdService) { }
 
-              /* Tour method. */
+    /* Tour method. */
     ngAfterViewInit() {
         this.shepherdService.defaultStepOptions = {
             scrollTo: false,
@@ -166,11 +166,11 @@ export class IndexComponent implements OnInit, AfterViewInit {
         ]);
     }
     /* Method to start the tour, click questionmark! */
-    tourStart(){
-    this.shepherdService.start();
+    tourStart() {
+        this.shepherdService.start();
     }
-  ngOnInit() {
-//    this.personsname = this.authfire.auth.currentUser.displayName;
-  }
+    ngOnInit() {
+        //    this.personsname = this.authfire.auth.currentUser.displayName;
+    }
 
 }

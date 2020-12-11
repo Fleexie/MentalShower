@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PasswordValidator } from '../passwordValidator';
 import { LoginService } from '../_services/user.service';
-import md5 from 'md5';
 
 @Component({
   selector: 'app-signup',

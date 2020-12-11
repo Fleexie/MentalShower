@@ -4,16 +4,6 @@
 
 export const environment = {
   production: false,
-  config: {
-    apiKey: 'AIzaSyBP7YlDukb2wxVVQxN__E19zSBDSNKVuKs',
-    authDomain: 'ventproject-7dee2.firebaseapp.com',
-    databaseURL: 'https://ventproject-7dee2.firebaseio.com',
-    projectId: 'ventproject-7dee2',
-    storageBucket: 'ventproject-7dee2.appspot.com',
-    messagingSenderId: '313422560310',
-    appId: '1:313422560310:web:23b1fb5255e759a8b66c97',
-    measurementId: 'G-2PQLCZK5EJ'
-  }
 };
 
 /*
