@@ -6,15 +6,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MaterialModule } from '../material/material.module';
 import { routing } from './app-routing';
 import { AppComponent } from './app.component';
-import {ControlpanelComponent, QrScannerDialogComponent} from './controlpanel/controlpanel.component';
+import { ControlpanelComponent, QrScannerDialogComponent } from './controlpanel/controlpanel.component';
 import { DialogComponent } from './dialog/dialog.component';
 import { FanAdvancedComponent } from './fan-setting/fan-advanced/fan-advanced.component';
-import {ColdDialogComponent, FanBasicComponent} from './fan-setting/fan-basic/fan-basic.component';
+import { ColdDialogComponent, FanBasicComponent } from './fan-setting/fan-basic/fan-basic.component';
 import { FanContainerComponent } from './fan-setting/fan-container/fan-container.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
-import { LearningElementComponent } from './learning-element/learning-element.component';
 import { LoginComponent } from './login/login.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import { NavComponent } from './nav/nav.component';
@@ -23,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { ZoneSelectComponent } from './controlpanel/zone-select/zone-select.component';
 import { QrComponent } from './controlpanel/qr/qr.component';
-
+import { NewlearningelementsComponent } from './newlearningelements/newlearningelements.component';
+import { InfoComponent } from './info/info.component';
 import { SignupComponent } from './signup/signup.component';
 import { QrResultComponent } from './controlpanel/qr/qr-result/qr-result.component';
 import { FanSettingComponent } from './fan-setting/fan-setting.component';
@@ -40,7 +40,6 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     FanAdvancedComponent,
     HomeComponent,
     PageNotFoundComponent,
-    LearningElementComponent,
     ZoneSelectComponent,
     DialogComponent,
     LoginComponent,
@@ -49,7 +48,10 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     QrResultComponent,
     FanSettingComponent,
     SeatFilterPipe,
-      QrComponent
+    QrComponent,
+    NewlearningelementsComponent,
+    InfoComponent
+
   ],
   imports: [
     BrowserModule,
@@ -66,10 +68,10 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
   ],
 
   providers: [],
-    entryComponents: [
-        ColdDialogComponent,
-        QrScannerDialogComponent
-    ],
+  entryComponents: [
+    ColdDialogComponent,
+    QrScannerDialogComponent
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
