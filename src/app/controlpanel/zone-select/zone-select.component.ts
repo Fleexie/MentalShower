@@ -82,15 +82,14 @@ export class ZoneSelectComponent implements OnInit {
     console.log(this.currentZone, 'set as current Zone');
     this.positionChange.emit(this.position);
 
-    this.updatePreset(1, this.currentZone, 3, 12);
+    this.updatePreset(this.currentZone, 1, this.currentRoom);
   }
 
-  updatePreset(presetID, climateID, userID, airflowID){
+  updatePreset(climateID, userID, roomID){
     const data = {
-      FK_Climate_Zone: climateID,
-      FK_User: userID,
-      airflow: airflowID
+      zone_id: climateID,
+      room_id: roomID
     };
-    this.presetService.putPresets(presetID, data).subscribe(response => { console.log(data); });
+    this.presetService.putPresets(userID, data).subscribe(response => { console.log(data); });
   }
 }

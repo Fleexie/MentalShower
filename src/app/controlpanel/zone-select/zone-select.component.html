@@ -1,20 +1,6 @@
-<mat-expansion-panel
-  class="dropDowns"
-  [expanded]="panelOpenState === true"
-  (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Select Zone
-    </mat-panel-title>
-    <mat-panel-description>
-      Manually Select Zone
-    </mat-panel-description>
-  </mat-expansion-panel-header>
-
-    <mat-form-field style="width: 280px" appearance="outline">
+    <mat-form-field class="dropDowns" appearance="no-line">
       <mat-label mat-raised>Choose a Room</mat-label>
-      <mat-select matNativeControl>
+      <mat-select class="selectValue" matNativeControl>
         <mat-option
           *ngFor="let room of rooms; index as i;"
           value="{{room.id}}"
@@ -25,7 +11,7 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field style="width: 280px" appearance="outline">
+    <mat-form-field appearance="no-line" class="dropDowns">
 
       <mat-label>{{ currentRoom == null ? "---" : "Select Zone" }}</mat-label>
       <mat-select matNativeControl [(value)]="currentZoneId">
@@ -56,4 +42,4 @@
 
       </div>
     </div>
-</mat-expansion-panel>
+<!--</mat-expansion-panel>-->
