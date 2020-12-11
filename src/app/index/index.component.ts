@@ -10,7 +10,6 @@ import {
     faQuestionCircle
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../_services/user.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { ShepherdService } from 'angular-shepherd';
 
 @Component({
@@ -30,7 +29,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
   question = faQuestionCircle;
 
   userName = 'Guest12314';
-  constructor(private loginuser: LoginService, private authfire: AngularFireAuth,
+  constructor(private loginuser: LoginService,
               private shepherdService: ShepherdService) { }
 
               /* Tour method. */

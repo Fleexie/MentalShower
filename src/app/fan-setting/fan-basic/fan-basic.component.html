@@ -1,16 +1,17 @@
+<fa-icon [icon]="question" class="guide" (click)="tourStart()"></fa-icon>
 <header class="subhead">
   <h2>How do you feel?</h2>
 </header>
 <section class="container">
-    <mat-card class="card" (click)="coldClicked('coldSetting')">
+    <mat-card class="card first-element" (click)="coldClicked('coldSetting')">
       <fa-icon [icon]="cold" class="icon cold"></fa-icon>
       <p>Cold</p>
     </mat-card>
-    <mat-card class="card" (click)="coldClicked('goodSetting')">
+    <mat-card class="card second-element" (click)="coldClicked('goodSetting')">
       <fa-icon [icon]="good" class="icon good"></fa-icon>
       <p>Good</p>
     </mat-card>
-    <mat-card class="card" (click)="coldClicked('warmSetting')">
+    <mat-card class="card third-element" (click)="coldClicked('warmSetting')">
       <fa-icon [icon]="warm" class="icon warm"></fa-icon>
       <p>Warm</p>
     </mat-card>

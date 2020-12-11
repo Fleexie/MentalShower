@@ -1,6 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { faSnowflake, faSun, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
+import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
+import { faSnowflake, faSun, faThumbsUp, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ShepherdService } from 'angular-shepherd';
 
 
 @Component({
@@ -10,13 +11,15 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
       './fan-basic.component.css'
   ]
 })
-export class FanBasicComponent implements OnInit {
+export class FanBasicComponent implements OnInit, AfterViewInit {
   cold = faSnowflake;
   warm = faSun;
   good = faThumbsUp;
+  question = faQuestionCircle;
 
   currentFan;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+    private shepherdService: ShepherdService) { }
 
   /* Dialog method */
   coldClicked(parameter): void{
@@ -47,6 +50,113 @@ export class FanBasicComponent implements OnInit {
           console.log('The dialog was closed');
       });
   }
+
+  ngAfterViewInit() {
+    this.shepherdService.defaultStepOptions = {
+        scrollTo: false,
+        cancelIcon: {
+            enabled: true
+        }
+    };
+    this.shepherdService.modal = true;
+    this.shepherdService.confirmCancel = false;
+    this.shepherdService.addSteps([
+        {
+            id: 'intro',
+            attachTo: {
+                element: '.first-element',
+                on: 'bottom'
+            },
+            buttons: [
+                {
+                    classes: 'shepherd-button-primary',
+                    text: 'Next',
+                    type: 'next'
+                }
+            ],
+            cancelIcon: {
+                enabled: true
+            },
+            classes: 'tour custom-class-name-2',
+            highlightClass: 'highlight',
+            scrollTo: false,
+            title: 'Cold',
+            text: ['If you are feeling cold use this setting. It will slow down the ventilation speed so it does not feel too cold'],
+            when: {
+                show: () => {
+                    console.log('show step');
+                },
+                hide: () => {
+                    console.log('hide step');
+                }
+            }
+        },
+        {
+            id: 'intro',
+            attachTo: {
+                element: '.second-element',
+                on: 'bottom'
+            },
+            buttons: [
+                {
+                    classes: 'shepherd-button-primary',
+                    text: 'Next',
+                    type: 'next'
+                }
+            ],
+            cancelIcon: {
+                enabled: true
+            },
+            classes: 'tour custom-class-name-2',
+            highlightClass: 'highlight',
+            scrollTo: false,
+            title: 'Good',
+            text: ['If you are feeling okay and do not need any changes done to the ventilation this is the settings for you. it will keep the ventilation at current settings'],
+            when: {
+                show: () => {
+                    console.log('show step');
+                },
+                hide: () => {
+                    console.log('hide step');
+                }
+            }
+        },
+        {
+            id: 'intro',
+            attachTo: {
+                element: '.third-element',
+                on: 'top'
+            },
+            buttons: [
+                {
+                    classes: 'shepherd-button-primary',
+                    text: 'End Tour',
+                    type: 'next'
+                }
+            ],
+            cancelIcon: {
+                enabled: true
+            },
+            classes: 'tour custom-class-name-2',
+            highlightClass: 'highlight',
+            scrollTo: false,
+            title: 'Warm',
+            text: ['If you are feeling warm/hot use this setting. It will increase the ventilation speed. More fresh air will be pushed around the room at a higher speed.'],
+            when: {
+                show: () => {
+                    console.log('show step');
+                },
+                hide: () => {
+                    console.log('hide step');
+                }
+            }
+        }
+    ]);
+}
+/* Method to start the tour, click questionmark! */
+tourStart(){
+this.shepherdService.start();
+}
 
   ngOnInit(): void {
   }
