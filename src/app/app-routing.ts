@@ -28,8 +28,9 @@ export const routing = RouterModule.forRoot([
     { path: 'signup/:invalidLoginMessage', component: SignupComponent },
     { path: 'cp/fan', component: FanContainerComponent },
     { path: 'learningelement', component: NewlearningelementsComponent },
+    { path: 'learningelement/info', component: InfoComponent },
     { path: '**', component: PageNotFoundComponent },
-
+    
 ]);
 
 
