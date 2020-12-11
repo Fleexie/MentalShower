@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { faSnowflake, faSun, faThumbsUp} from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {PresetService} from '../../_services/preset.service';
 
 
 @Component({
@@ -16,7 +17,9 @@ export class FanBasicComponent implements OnInit {
   good = faThumbsUp;
 
   currentFan;
-  constructor(public dialog: MatDialog) { }
+  preset: any;
+  currentAir: number;
+  constructor(public dialog: MatDialog, private presetService: PresetService) { }
 
   /* Dialog method */
   coldClicked(parameter): void{
@@ -26,12 +29,15 @@ export class FanBasicComponent implements OnInit {
     switch (this.currentFan) {
       case 'coldSetting':
         settingType = 'Cold';
+        this.updatePreset(1, 80);
         break;
         case 'goodSetting':
           settingType = 'Good';
+          this.updatePreset(1, 0);
           break;
           case 'warmSetting':
             settingType = 'Warm';
+            this.updatePreset(1, 20);
             break;
       }
       /* Refer to the dialog */
@@ -47,8 +53,21 @@ export class FanBasicComponent implements OnInit {
           console.log('The dialog was closed');
       });
   }
-
+  getPreset(): void {
+    this.presetService.getPreset(1).subscribe( data => {
+      this.preset = data;
+      console.log(this.preset);
+    });
+  }
+  updatePreset(userID, airflow){
+    this.preset[0].airflow = airflow;
+    const data = {
+      airflow: airflow
+    };
+    this.presetService.putPresets(userID, data).subscribe(response => { console.log(data); });
+  }
   ngOnInit(): void {
+    this.getPreset();
   }
 
 }
