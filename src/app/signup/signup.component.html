@@ -25,6 +25,9 @@
 		&& !form.controls.email.valid" class="mat-alert-danger">
                 email is required
             </div>
+            <div *ngIf="isTaken" class="mat-alert-danger" >
+                This email is already taken.Please choose next.
+            </div>
         </div>
         <div class="form-group">
             <p>
