@@ -21,7 +21,7 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
   currentFan;
   preset: any;
   currentAir: number;
-  constructor(public dialog: MatDialog, private presetService: PresetService, private shepherdService: ShepherdServic) { }
+  constructor(public dialog: MatDialog, private presetService: PresetService, private shepherdService: ShepherdService) { }
 
   /* Dialog method */
   coldClicked(parameter): void{
