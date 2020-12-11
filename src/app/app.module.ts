@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { environment } from '../environments/environment';
 import { MaterialModule } from '../material/material.module';
 import { routing } from './app-routing';
 import { AppComponent } from './app.component';
@@ -65,9 +61,6 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     ZXingScannerModule,
     FormsModule,
     // AppRoutingModule,
-    AngularFireModule.initializeApp(environment.config),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
   ],
