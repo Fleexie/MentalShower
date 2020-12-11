@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { faFan } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 import { InMemoryService } from '../../_services/in-memory.service';
-import { AngularFireAuth } from '@angular/fire/auth';
 @Component({
   selector: 'app-fan-advanced',
   templateUrl: './fan-advanced.component.html',
@@ -11,7 +10,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class FanAdvancedComponent implements OnInit {
   fan = faFan;
   airflow: any;
-  constructor(private route: Router, private info: InMemoryService, private afs: AngularFireAuth) { }
+  constructor(private route: Router, private info: InMemoryService) { }
 
   ngOnInit(): void {
   }
@@ -28,7 +27,6 @@ export class FanAdvancedComponent implements OnInit {
     console.log(this.airflow, this.info.room, this.info.zone);
     const data = {
       airflow: this.airflow,
-      uid: this.afs.auth.currentUser.uid,
       room: this.info.room,
       zone: this.info.zone
     };
