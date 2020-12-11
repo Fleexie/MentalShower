@@ -1,42 +1,45 @@
-<mat-expansion-panel class="dropDowns" [expanded]="panelOpenState === true" (opened)="panelOpenState = true"
-  (closed)="panelOpenState = false">
-  <mat-expansion-panel-header>
-    <mat-panel-title>
-      Select Zone
-    </mat-panel-title>
-    <mat-panel-description>
-      Manually Select Zone
-    </mat-panel-description>
-  </mat-expansion-panel-header>
+    <mat-form-field class="dropDowns" appearance="no-line">
+      <mat-label mat-raised>Choose a Room</mat-label>
+      <mat-select class="selectValue" matNativeControl>
+        <mat-option
+          *ngFor="let room of rooms; index as i;"
+          value="{{room.id}}"
+          (onSelectionChange)="setRoom(room.id)"
+        >
+          {{room.id}} - {{room.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <mat-form-field style="width: 280px" appearance="outline">
-    <mat-label mat-raised>Choose a Room</mat-label>
-    <mat-select matNativeControl>
-      <mat-option *ngFor="let room of rooms; index as i;" value="{{room.room_ID}}"
-        (onSelectionChange)="setRoom(room.room_ID)">
-        {{room.room_ID}} - {{room.name}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+    <mat-form-field appearance="no-line" class="dropDowns">
 
-  <mat-form-field style="width: 280px" appearance="outline">
+      <mat-label>{{ currentRoom == null ? "---" : "Select Zone" }}</mat-label>
+      <mat-select matNativeControl [(value)]="currentZoneId">
+        <mat-option
+          *ngFor="let zone of zones index as i;"
+          (onSelectionChange)="setZone(zone.id, i)"
+          value="{{i}}"
+        >
+          <mat-icon>view_module</mat-icon>
+          {{ i + 1 }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-divider></mat-divider>
+    <div class="selectZone">
+      <div class="zone"
+           *ngFor="let zone of zones index as i;"
+           (click)="setZone(zone.id, i)"
+      >
+<!--        <p>Current Air Flow : 100</p>-->
+        <div *ngFor="let seat of seats;">
+          <mat-icon *ngIf="seat.zone_id === zone.id"
+            [ngStyle]="{'color':seat.occupied === false ? 'red' : 'green'}"
+          >
+            chair
+          </mat-icon>
+        </div>
 
-    <mat-label>{{ currentRoom == null ? "---" : "Select Zone" }}</mat-label>
-    <mat-select matNativeControl [(value)]="currentZoneId">
-      <mat-option *ngFor="let zone of zones index as i;" (onSelectionChange)="setZone(zone.climate_zone_ID, i)"
-        value="{{i}}">
-        <mat-icon>view_module</mat-icon>
-        {{ i + 1 }}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-divider></mat-divider>
-  <div class="selectZone">
-    <div class="zone" *ngFor="let zone of zones index as i;" (click)="setZone(zone.climate_zone_ID, i)">
-      <!--        <p>Current Air Flow : 100</p>-->
-      <mat-icon *ngFor="let chair of chairs;" [ngStyle]="{'color':chair.taken !== false ? 'green' : 'green'}">
-        chair
-      </mat-icon>
+      </div>
     </div>
-  </div>
-</mat-expansion-panel>
+<!--</mat-expansion-panel>-->

@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, AfterViewInit } from '@angular/core';
 import { faSnowflake, faSun, faThumbsUp, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {PresetService} from '../../_services/preset.service';
 import { ShepherdService } from 'angular-shepherd';
 
 
@@ -18,8 +19,9 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
   question = faQuestionCircle;
 
   currentFan;
-  constructor(public dialog: MatDialog,
-    private shepherdService: ShepherdService) { }
+  preset: any;
+  currentAir: number;
+  constructor(public dialog: MatDialog, private presetService: PresetService, private shepherdService: ShepherdServic) { }
 
   /* Dialog method */
   coldClicked(parameter): void{
@@ -29,12 +31,15 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
     switch (this.currentFan) {
       case 'coldSetting':
         settingType = 'Cold';
+        this.updatePreset(1, 80);
         break;
         case 'goodSetting':
           settingType = 'Good';
+          this.updatePreset(1, 0);
           break;
           case 'warmSetting':
             settingType = 'Warm';
+            this.updatePreset(1, 20);
             break;
       }
       /* Refer to the dialog */
@@ -49,6 +54,19 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe(result => {
           console.log('The dialog was closed');
       });
+  }
+  getPreset(): void {
+    this.presetService.getPreset(1).subscribe( data => {
+      this.preset = data;
+      console.log(this.preset);
+    });
+  }
+  updatePreset(userID, airflow){
+    this.preset[0].airflow = airflow;
+    const data = {
+      airflow: airflow
+    };
+    this.presetService.putPresets(userID, data).subscribe(response => { console.log(data); });
   }
 
   ngAfterViewInit() {
@@ -159,6 +177,7 @@ this.shepherdService.start();
 }
 
   ngOnInit(): void {
+    this.getPreset();
   }
 
 }

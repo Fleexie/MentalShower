@@ -4,6 +4,7 @@ import {faQrcode, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
 import { CheckInService } from '../_services/check-in.service';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ShepherdService } from 'angular-shepherd';
+import {QrComponent} from './qr/qr.component';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class ControlpanelComponent implements OnInit {
     /* Dialog/Modal for QR Scanner */
     qrScanner(): void{
 
-        const dialogRef = this.dialog.open(QrScannerDialogComponent, {
+        const dialogRef = this.dialog.open(QrComponent, {
             width: '80%',
             height: 'fit-content',
             hasBackdrop: true,

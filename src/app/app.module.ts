@@ -8,8 +8,8 @@ import { routing } from './app-routing';
 import { AppComponent } from './app.component';
 import { ControlpanelComponent, QrScannerDialogComponent } from './controlpanel/controlpanel.component';
 import { DialogComponent } from './dialog/dialog.component';
-import { FanAdvancedComponent } from './fan-setting/fan-advanced/fan-advanced.component';
-import { ColdDialogComponent, FanBasicComponent } from './fan-setting/fan-basic/fan-basic.component';
+import {ColdDialogComponent, FanBasicComponent} from './fan-setting/fan-basic/fan-basic.component';
+
 import { FanContainerComponent } from './fan-setting/fan-container/fan-container.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -37,7 +37,6 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     ControlpanelComponent,
     FanContainerComponent,
     FanBasicComponent,
-    FanAdvancedComponent,
     HomeComponent,
     PageNotFoundComponent,
     ZoneSelectComponent,
