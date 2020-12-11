@@ -28,9 +28,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
     contact = faAddressCard;
     question = faQuestionCircle;
 
-    userName = 'Guest12314';
-    constructor(private loginuser: LoginService,
-        private shepherdService: ShepherdService) { }
+  userName = 'Guest12314';
+  constructor(private loginuser: LoginService,
+              private shepherdService: ShepherdService) { }
 
     /* Tour method. */
     ngAfterViewInit() {

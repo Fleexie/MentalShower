@@ -16,6 +16,8 @@ export class MyProfileComponent implements OnInit {
   uid = 0;
   room = 0;
   zone = 0;
+  name = 'name';
+  email = 'email';
 
   userData: any = {
     airflow: this.airflow,
