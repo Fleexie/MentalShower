@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CheckInService } from '../../_services/check-in.service';
 import { InMemoryService } from '../../_services/in-memory.service';
 import {PresetService} from '../../_services/preset.service';
+
 @Component({
   selector: 'app-zone-select',
   templateUrl: './zone-select.component.html',
@@ -16,10 +17,11 @@ export class ZoneSelectComponent implements OnInit {
   panelOpenState = false;
   rooms: any;
   zones: any;
+  seats: any;
   currentZone: any;
   currentRoom: any;
   currentZoneId: any;
-  chairs: any;
+
   constructor(
     private checkIn: CheckInService,
     private presetService: PresetService,
@@ -45,6 +47,7 @@ export class ZoneSelectComponent implements OnInit {
     this.inmemory.room = id;
     console.log(this.currentRoom, 'set as current room');
     this.getZones();
+    this.getSeats();
   }
   getZones() {
     this.checkIn.getZones(this.currentRoom)
@@ -55,12 +58,11 @@ export class ZoneSelectComponent implements OnInit {
         },
         error => {
         });
-      this.getSeats(1);
   }
-  getSeats(zone) {
-    this.checkIn.getSeats(zone).subscribe(data => {
-      this.chairs = data;
-      console.log(this.chairs);
+  getSeats() {
+    this.checkIn.getSeats(this.currentRoom).subscribe(data => {
+      this.seats = data;
+      console.log(this.seats);
     },
       error => {
       console.log('fail at getSeat');

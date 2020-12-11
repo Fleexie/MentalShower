@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
+import {MatDialog, MatDialogRef} from '@angular/material/dialog';
+import {ControlpanelComponent} from '../controlpanel.component';
 
 @Component({
   selector: 'app-qr',
@@ -20,9 +21,11 @@ export class QrComponent implements OnInit {
   torchEnabled: boolean;
   tryHarder: boolean;
   constructor(
-    private readonly dialog: MatDialog
+    public dialogRef: MatDialogRef<ControlpanelComponent>
   ) { }
-
+  onNoClick(): void{
+    this.dialogRef.close();
+  }
   ngOnInit(): void {
   }
   /** Methods */

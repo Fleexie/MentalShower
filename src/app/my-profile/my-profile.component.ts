@@ -40,5 +40,7 @@ export class MyProfileComponent implements OnInit {
   //       }
   //     );
   //   }
+  name = 'henrik';
+  email = 'paulsen';
 }
 
