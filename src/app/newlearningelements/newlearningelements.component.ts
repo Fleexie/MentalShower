@@ -13,6 +13,6 @@ export class NewlearningelementsComponent implements OnInit {
   ngOnInit(): void {
   }
   goNext() {
-    this.router.navigate(['information']);
+    this.router.navigate(['learningelement/info']);
   }
 }
