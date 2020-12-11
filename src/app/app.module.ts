@@ -1,7 +1,4 @@
 import { NgModule } from '@angular/core';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +9,6 @@ import { routing } from './app-routing';
 import { AppComponent } from './app.component';
 import {ControlpanelComponent, QrScannerDialogComponent} from './controlpanel/controlpanel.component';
 import { DialogComponent } from './dialog/dialog.component';
-import { FanAdvancedComponent } from './fan-setting/fan-advanced/fan-advanced.component';
 import {ColdDialogComponent, FanBasicComponent} from './fan-setting/fan-basic/fan-basic.component';
 import { FanContainerComponent } from './fan-setting/fan-container/fan-container.component';
 import { HeaderComponent } from './header/header.component';
@@ -41,7 +37,6 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     ControlpanelComponent,
     FanContainerComponent,
     FanBasicComponent,
-    FanAdvancedComponent,
     HomeComponent,
     PageNotFoundComponent,
     LearningElementComponent,
@@ -65,9 +60,6 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     ZXingScannerModule,
     FormsModule,
     // AppRoutingModule,
-    AngularFireModule.initializeApp(environment.config),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
   ],

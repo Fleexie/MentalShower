@@ -8,7 +8,6 @@ import { LearningElementComponent } from './learning-element/learning-element.co
 import { FanBasicComponent } from './fan-setting/fan-basic/fan-basic.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { FanAdvancedComponent } from './fan-setting/fan-advanced/fan-advanced.component';
 import { MyProfileComponent } from './my-profile/my-profile.component';
 import {FanSettingComponent} from './fan-setting/fan-setting.component';
 
@@ -20,8 +19,7 @@ export const routing = RouterModule.forRoot([
     // TODO This needs to be changed
     { path: 'cp/fanSetting', component: FanSettingComponent, children: [
       {path: '', component: FanBasicComponent},
-        {path: 'basic', component: FanBasicComponent},
-      {path: 'advanced', component: FanAdvancedComponent}
+        {path: 'basic', component: FanBasicComponent}
     ]},
     { path: 'login', component: LoginComponent },
     { path: 'profile', component: MyProfileComponent },
