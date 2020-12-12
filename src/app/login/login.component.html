@@ -1,35 +1,82 @@
 <header>
   <h1>Login</h1>
 </header>
-    <form [formGroup]="form" (ngSubmit)="login()">
-        <div class="form-group">
-            <p>
-                <mat-form-field>
-                    <input type="email" matInput placeholder="email" formControlName="email">
-                </mat-form-field>
-            </p>
-            <div *ngIf="form.controls.email.touched
-		&& !form.controls.email.valid" class="mat-alert-danger">
-                email is required
-            </div>
-        </div>
-        <div class="form-group">
-            <p>
-                <mat-form-field>
-                    <input type="password" matInput placeholder="Password" formControlName="password">
-                </mat-form-field>
-            </p>
-            <div *ngIf="form.controls.password.touched && form.controls.password.errors">
-                <div *ngIf="form.controls.password.errors.required" class="mat-alert-danger">
-                    Password is required.
-                </div>
-                <div *ngIf="form.controls.password.errors.cannotContainSpace" class="mat-alert-danger">
-                    Password cannot contain space.
-                </div>
-            </div>
-        </div>
-      <button class="user-button" type="submit" mat-button>Login</button>
+<form
+  *ngIf="!isLoggedIn"
+  name="form"
+  (ngSubmit)="f.form.valid && onSubmit()"
+  #f="ngForm"
+  novalidate
+>
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input
+      type="text"
+      class="form-control"
+      id="username"
+      name="username"
+      [(ngModel)]="form.username"
+      required
+      #username="ngModel"
+    />
+    <div class="dangerMan">
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="f.submitted && username.invalid"
+      >
+        Username is required!
+      </div>
+    </div>
 
-    <button class="register-button" type="submit" (click)="register()" mat-button>New User ? Register</button>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="password"
+      class="form-control"
+      id="password"
+      name="password"
+      [(ngModel)]="form.password"
+      required
+      minlength="6"
+      #password="ngModel"
+    />
+    <div class="dangerMan">
+      <div
+        class="alert alert-danger"
+        role="alert"
+        *ngIf="f.submitted && password.invalid"
+      >
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">
+          Password must be at least 6 characters
+        </div>
+      </div>
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed {{ errorMessage }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <button class="register-button" type="submit" mat-button>
+      Login
+    </button>
+  </div>
+
+<div class="alert alert-success" *ngIf="isLoggedIn">
+  Logged in as {{ roles }}.
+</div>
+
   </form>
+<div class="inOut">
+  <p (click)="register()">New User ? Register</p>
+</div>
 

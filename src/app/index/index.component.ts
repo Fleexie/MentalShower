@@ -11,6 +11,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from '../_services/user.service';
 import { ShepherdService } from 'angular-shepherd';
+import {AuthService} from '../_services/auth.service';
+import {TokenStorageService} from '../_services/token-storage.service';
 
 @Component({
     selector: 'app-index',
@@ -28,9 +30,10 @@ export class IndexComponent implements OnInit, AfterViewInit {
     contact = faAddressCard;
     question = faQuestionCircle;
 
-  userName = 'Guest12314';
+  username = 'Guest12314';
   constructor(private loginuser: LoginService,
-              private shepherdService: ShepherdService) { }
+              private shepherdService: ShepherdService,
+              private tokenStorage: TokenStorageService) { }
 
     /* Tour method. */
     ngAfterViewInit() {
@@ -170,6 +173,9 @@ export class IndexComponent implements OnInit, AfterViewInit {
         this.shepherdService.start();
     }
     ngOnInit() {
+      if (this.tokenStorage.getToken()){
+        this.username = this.tokenStorage.getUser().username;
+      }
         //    this.personsname = this.authfire.auth.currentUser.displayName;
     }
 
