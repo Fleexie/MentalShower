@@ -1,10 +1,11 @@
 import {Component, Inject, OnInit, AfterViewInit} from '@angular/core';
-import {faQrcode, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+import {faQrcode, faQuestionCircle, faSearch} from '@fortawesome/free-solid-svg-icons';
 
 import { CheckInService } from '../_services/check-in.service';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ShepherdService } from 'angular-shepherd';
 import {QrComponent} from './qr/qr.component';
+import {ZoneSelectComponent} from './zone-select/zone-select.component';
 
 
 @Component({
@@ -16,6 +17,7 @@ import {QrComponent} from './qr/qr.component';
 export class ControlpanelComponent implements OnInit {
     qrCode = faQrcode;
     question = faQuestionCircle;
+    search = faSearch;
 
   /** Properties */
   currentPosition = {
@@ -42,6 +44,21 @@ export class ControlpanelComponent implements OnInit {
             console.log('The dialog was closed');
         });
     }
+
+  /* Dialog/Modal for QR Scanner */
+  zoneSelect(): void{
+
+    const dialogRef = this.dialog.open(ZoneSelectComponent, {
+      width: '80%',
+      height: 'fit-content',
+      hasBackdrop: true,
+      panelClass: ['dialogClass'],
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
     /* Page tour! */
     ngAfterViewInit() {

@@ -17,8 +17,9 @@ header{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 20px 0;
-    padding: 1rem 0;
+    margin: 20px 0 0px;
+
+    padding: 1rem 0 0;
     color: white;
 
 }
@@ -26,12 +27,15 @@ header h1{
     font-size: 2rem;
     font-weight: bold;
 }
-
+.currentSetting{
+  font-size: 15pt;
+}
 /* Cards navigation box */
 mat-card{
     width: 45%;
     max-width: 300px;
     margin-bottom: 35px;
+    margin-top: 35px;
     background-color: rgba(86, 88, 150, 0.51);
     color: white;
     display: flex;
@@ -63,8 +67,9 @@ a {
     text-decoration: none;
     color: white;
 }
-
-
+.popUpBtn{
+  float: right;
+}
 
 @media screen and (min-width: 800px) {
     /* Everywhere */

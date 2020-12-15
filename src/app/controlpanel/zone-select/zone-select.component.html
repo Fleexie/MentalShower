@@ -1,4 +1,5 @@
-    <mat-form-field class="dropDowns" appearance="no-line">
+<h2>Select Position</h2>
+<mat-form-field class="dropDowns" appearance="no-line">
       <mat-label mat-raised>Choose a Room</mat-label>
       <mat-select class="selectValue" matNativeControl>
         <mat-option
@@ -11,20 +12,20 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="no-line" class="dropDowns">
+<!--    <mat-form-field appearance="no-line" class="dropDowns">-->
 
-      <mat-label>{{ currentRoom == null ? "---" : "Select Zone" }}</mat-label>
-      <mat-select matNativeControl [(value)]="currentZoneId">
-        <mat-option
-          *ngFor="let zone of zones index as i;"
-          (onSelectionChange)="setZone(zone.id, i)"
-          value="{{i}}"
-        >
-          <mat-icon>view_module</mat-icon>
-          {{ i + 1 }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+<!--      <mat-label>{{ currentRoom == null ? "-&#45;&#45;" : "Select Zone" }}</mat-label>-->
+<!--      <mat-select matNativeControl [(value)]="currentZoneId">-->
+<!--        <mat-option-->
+<!--          *ngFor="let zone of zones index as i;"-->
+<!--          (onSelectionChange)="setZone(zone.id, i)"-->
+<!--          value="{{i}}"-->
+<!--        >-->
+<!--          <mat-icon>view_module</mat-icon>-->
+<!--          {{ i + 1 }}-->
+<!--        </mat-option>-->
+<!--      </mat-select>-->
+<!--    </mat-form-field>-->
     <mat-divider></mat-divider>
     <div class="selectZone">
       <div class="zone"
@@ -42,4 +43,6 @@
 
       </div>
     </div>
-<!--</mat-expansion-panel>-->
+<button mat-button class="buttonGeneral" (click)="onNoClick()">Check In</button>
+<p class="">Room: {{this.currentRoom || '---'}} | Zone: {{this.currentZone || '---'}}</p>
+

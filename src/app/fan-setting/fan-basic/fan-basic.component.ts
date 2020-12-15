@@ -189,8 +189,9 @@ this.shepherdService.start();
     template: `<h2>You clicked that you are feeling <span class="{{data.settings}}">{{data.settings}}</span>.</h2>
     <p>The system will take care of any changes to the ventilation unit.</p>
     <p>You may not feel a change immediately</p>
+    <button class="buttonGeneral" mat-button (click)="onNoClick()">Close</button>
 `,
-    styleUrls: ['fan-basic.component.css']
+    styleUrls: ['fan-basic.component.css', '../../_styles/button.css']
 })
 export class ColdDialogComponent {
     constructor(

@@ -2,7 +2,7 @@
 
 <header>
   <h1>Check In</h1>
-  <p>Current Room: {{currentPosition.currentRoom || '---'}} | Current Zone: {{currentPosition.currentZone || '---'}}</p>
+  <p class="currentSetting">Current Room: {{currentPosition.currentRoom || '---'}} | Current Zone: {{currentPosition.currentZone || '---'}}</p>
 </header>
 
 <mat-card (click)="qrScanner()" class="first-element">
@@ -15,8 +15,13 @@
   <span>OR</span>
   <hr>
 </div>
-<section class="zoneContainer" class="second-element">
-  <app-zone-select [(position)]="currentPosition">
-<!--    Component for zone selection -->
-  </app-zone-select>
-</section>
+<mat-card (click)="zoneSelect()" class="second-element">
+  <fa-icon [icon]="search" class="icon"></fa-icon>
+  <mat-card-title>Chose Room</mat-card-title>
+</mat-card>
+
+<!--<section class="zoneContainer" class="second-element">-->
+<!--  <app-zone-select [(position)]="currentPosition">-->
+<!--&lt;!&ndash;    Component for zone selection &ndash;&gt;-->
+<!--  </app-zone-select>-->
+<!--</section>-->

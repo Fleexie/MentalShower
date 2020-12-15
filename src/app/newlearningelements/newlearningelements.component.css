@@ -16,3 +16,20 @@ button{
     background-color: #673ab7;
     color: white;
 }
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+  padding: 1rem 0;
+  color: white;
+}
+header h1{
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+.currentSetting{
+  font-size: 14pt;
+}

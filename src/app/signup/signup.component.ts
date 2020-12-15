@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['../_styles/styles.css', './signup.component.css']
+  styleUrls: ['../_styles/styles.css', './signup.component.css', '../_styles/button.css']
 })
 export class SignupComponent implements OnInit {
   form: any = {};

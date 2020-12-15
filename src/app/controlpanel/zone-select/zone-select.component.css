@@ -49,3 +49,6 @@ mat-label{
   background-color: rgba(86, 88, 150, 0.51);
   color: white;
 }
+.popUpBtn{
+  float: right;
+}

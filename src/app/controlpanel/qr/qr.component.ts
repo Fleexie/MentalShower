@@ -5,7 +5,7 @@ import {ControlpanelComponent} from '../controlpanel.component';
 @Component({
   selector: 'app-qr',
   templateUrl: './qr.component.html',
-  styleUrls: ['./qr.component.css']
+  styleUrls: ['./qr.component.css', '../../_styles/button.css']
 })
 export class QrComponent implements OnInit {
   panelOpenState = false;
