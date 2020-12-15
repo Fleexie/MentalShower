@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-const presetUrl = 'http://localhost:8080/api/preset';
+const presetUrl = 'http://mentalshowerbackend.ndrejr.dk/api/preset';
 
 interface Presets {
   airflow: number;

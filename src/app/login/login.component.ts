@@ -6,7 +6,7 @@ import {TokenStorageService} from '../_services/token-storage.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['../_styles/styles.css', './login.component.css'],
+  styleUrls: ['../_styles/styles.css', './login.component.css', '../_styles/button.css'],
 })
 export class LoginComponent implements OnInit {
   form: any = {};
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
+      this.router.navigate(['profile']);
     }
   }
 
@@ -43,6 +44,7 @@ export class LoginComponent implements OnInit {
   }
 
   reloadPage(): void {
+    this.router.navigate(['']);
     window.location.reload();
   }
   register() {

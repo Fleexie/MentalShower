@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'http://localhost:8080/api/presets';
+const baseUrl = 'http://mentalshowerbackend.ndrejr.dk/api/presets';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,6 +14,6 @@ export class InMemoryService {
     return this.http.post(baseUrl, data);
   }
   getbyId(uid) {
-    return this.http.get(`http://localhost:8080/api/presets/${uid}`);
+    return this.http.get(`http://mentalshowerbackend.ndrejr.dk/api/presets/${uid}`);
   }
 }
