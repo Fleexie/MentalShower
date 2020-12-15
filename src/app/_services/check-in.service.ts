@@ -3,9 +3,9 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
-const roomUrl = 'https://mentalshowerbackend.ndrejr.dk/api/room';
-const zoneByRoomUrl = 'https://mentalshowerbackend.ndrejr.dk/api/zone';
-const seatByZoneUrl = 'https://mentalshowerbackend.ndrejr.dk/api/seat';
+const roomUrl = 'http://mentalshowerbackend.ndrejr.dk/api/room';
+const zoneByRoomUrl = 'http://mentalshowerbackend.ndrejr.dk/api/zone';
+const seatByZoneUrl = 'http://mentalshowerbackend.ndrejr.dk/api/seat';
 
 @Injectable({
   providedIn: 'root'

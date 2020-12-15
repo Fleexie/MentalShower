@@ -3,6 +3,7 @@ import { faSnowflake, faSun, faThumbsUp, faQuestionCircle} from '@fortawesome/fr
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import {PresetService} from '../../_services/preset.service';
 import { ShepherdService } from 'angular-shepherd';
+import {TokenStorageService} from '../../_services/token-storage.service';
 
 
 @Component({
@@ -17,11 +18,16 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
   warm = faSun;
   good = faThumbsUp;
   question = faQuestionCircle;
-
+  user: string;
   currentFan;
   preset: any;
   currentAir: number;
-  constructor(public dialog: MatDialog, private presetService: PresetService, private shepherdService: ShepherdService) { }
+  constructor(
+    public dialog: MatDialog,
+    private presetService: PresetService,
+    private shepherdService: ShepherdService,
+    private tokenStorage: TokenStorageService
+  ) { }
 
   /* Dialog method */
   coldClicked(parameter): void{
@@ -55,16 +61,16 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
           console.log('The dialog was closed');
       });
   }
-  getPreset(): void {
-    this.presetService.getPreset(1).subscribe( data => {
+  getPreset(id): void {
+    this.presetService.getPreset(id).subscribe( data => {
       this.preset = data;
       console.log(this.preset);
     });
   }
-  updatePreset(userID, airflow){
-    this.preset[0].airflow = airflow;
+  updatePreset(userID, airValue){
+    this.preset.airflow = airValue;
     const data = {
-      airflow: airflow
+      airflow: airValue
     };
     this.presetService.putPresets(userID, data).subscribe(response => { console.log(data); });
   }
@@ -177,9 +183,12 @@ this.shepherdService.start();
 }
 
   ngOnInit(): void {
-    this.getPreset();
+    if (this.tokenStorage.getToken()) {
+      this.user = this.tokenStorage.getUser().id;
+      console.log(this.tokenStorage.getUser());
+    }
+    this.getPreset(this.user);
   }
-
 }
 
 

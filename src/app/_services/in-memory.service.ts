@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const baseUrl = 'https://mentalshowerbackend.ndrejr.dk/api/presets';
+const baseUrl = 'http://mentalshowerbackend.ndrejr.dk/api/presets';
 @Injectable({
   providedIn: 'root'
 })
