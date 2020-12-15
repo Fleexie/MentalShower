@@ -6,8 +6,8 @@ const presetUrl = 'http://mentalshowerbackend.ndrejr.dk/api/preset';
 
 interface Presets {
   airflow: number;
-  user: number;
-  climate_zone: number;
+  user_id: number;
+  zone_id: number;
 }
 
 @Injectable({
