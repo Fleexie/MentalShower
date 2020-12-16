@@ -2,7 +2,9 @@
 
 <header>
   <h1>Check In</h1>
-  <p class="currentSetting">Current Room: {{currentPosition.currentRoom || '---'}} | Current Zone: {{currentPosition.currentZone || '---'}}</p>
+  <p class="currentSetting">
+    Current Zone:
+    {{position.currentZone || '---'}}</p>
 </header>
 
 <mat-card (click)="qrScanner()" class="first-element">
