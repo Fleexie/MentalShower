@@ -21,7 +21,7 @@ export class QuizComponent implements OnInit {
       choices: ['Set room & Zone automatically', 'Open App', ' Get Registered'],
       correctAnswer: 0
     }, {
-      question: 'Where can you update your Presets ?',
+      question: 'Where can you update your Account ?',
       choices: ['In Checkin', 'In My Profile', 'In Fan Setting'],
       correctAnswer: 1
     }, {
