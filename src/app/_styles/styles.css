@@ -10,6 +10,7 @@ h1, h2, h3{
     position: absolute;
     right: 5px;
     top: 60px;
+    cursor: pointer;
 }
 
 header{
@@ -44,6 +45,12 @@ mat-card{
     text-align: center;
     padding: 1.5rem;
 }
+mat-card.button{
+    cursor: pointer;
+}
+mat-card.button:hover{
+    background-color: rgba(86, 88, 150, 0.70);
+}
 
 .icon{
     font-size: 2.5rem;
@@ -73,6 +80,8 @@ a {
 
 @media screen and (min-width: 800px) {
     /* Everywhere */
-
+    .guide{
+        top: 100px;
+    }
 
 }

@@ -37,3 +37,6 @@ header h1{
   font-size: 14pt;
 }
 
+mat-card{
+  width: 100%;
+}

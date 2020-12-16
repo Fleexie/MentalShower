@@ -21,6 +21,7 @@ app-nav{
         bottom: unset;
         left: unset;
         right: unset;
+        z-index: unset;
     }
 
 }

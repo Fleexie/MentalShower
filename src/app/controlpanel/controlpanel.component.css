@@ -26,3 +26,7 @@ padding: 15px;
 mat-card{
     margin: auto;
 }
+
+.second-element{
+    margin-bottom: 100px;
+}

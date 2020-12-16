@@ -53,3 +53,13 @@ fa-icon.icon{
     color: rgb(181,75,18);
     font-weight: bold;
 }
+
+@media screen and (min-width: 800px){
+    .container{
+        flex-direction: unset;
+        justify-content: center;
+    }
+    .container mat-card{
+        max-width: 200px;
+    }
+}

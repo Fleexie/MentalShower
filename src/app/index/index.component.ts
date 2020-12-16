@@ -30,7 +30,7 @@ export class IndexComponent implements OnInit, AfterViewInit {
     contact = faAddressCard;
     question = faQuestionCircle;
 
-  username = 'Guest12314';
+  username = 'Guest';
   constructor(private loginuser: LoginService,
               private shepherdService: ShepherdService,
               private tokenStorage: TokenStorageService) { }
