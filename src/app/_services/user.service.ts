@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 
-const userUrl = 'http://mentalshowerbackend.ndrejr.dk/api/users/';
+const userUrl = 'https://mentalshowerbackend.ndrejr.dk/api/users/';
 @Injectable({
     providedIn: 'root',
 })

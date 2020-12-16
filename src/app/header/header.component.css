@@ -10,7 +10,8 @@ mat-toolbar{
 }
 .v2u{
     color: white;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
     text-decoration: none;
     text-align: center;
 }

@@ -89,8 +89,7 @@ export class ZoneSelectComponent implements OnInit {
     this.currentZone = id;
     this.inmemory.zone = id;
     this.currentZoneId = localId;
-    this.position.currentRoom = this.currentRoom;
-    this.position.currentZone = (localId + 1);
+
     console.log(this.currentZone, 'set as current Zone');
     this.positionChange.emit(this.position);
 
@@ -112,6 +111,6 @@ export class ZoneSelectComponent implements OnInit {
       zone_id: climateID,
       room_id: roomID
     };
-    this.presetService.putPresets(userID, data).subscribe(response => { console.log(data); });
+    this.presetService.putPresets(userID, data).subscribe(response => { console.log(data, 'updated'); });
   }
 }

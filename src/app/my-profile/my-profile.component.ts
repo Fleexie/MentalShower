@@ -23,15 +23,17 @@ export class MyProfileComponent implements OnInit {
     username: this.tokenService.getUser().username,
     userId: this.tokenService.getUser().id,
     email: this.tokenService.getUser().email,
-    presets: '2'
+    presets: '2',
+    airflow: null,
+    zone_id: null
   };
-  airflow: any;
   preset: any;
   getPresets(): void{
     this.presetService.getPreset(this.userData.userId).subscribe( data => {
       this.preset = data;
-      console.log(this.preset);
-      this.airflow = this.preset.airflow;
+      console.log(this.preset[0]);
+      this.userData.airflow = this.preset[0].airflow;
+      this.userData.zone_id = this.preset[0].zone_id;
     });
   }
   ngOnInit(): void {

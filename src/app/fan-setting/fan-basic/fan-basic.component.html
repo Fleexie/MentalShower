@@ -1,6 +1,6 @@
 <header>
   <h1>Fan Setting</h1>
-   <p class="currentSetting">Current Airflow : {{ this.preset.airflow }}</p>
+   <p class="currentSetting">Current Airflow : {{ currentAir || 0 }}</p>
 </header>
 <fa-icon [icon]="question" class="guide" (click)="tourStart()"></fa-icon>
 <header class="subhead">

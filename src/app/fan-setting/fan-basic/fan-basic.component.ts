@@ -18,7 +18,7 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
   warm = faSun;
   good = faThumbsUp;
   question = faQuestionCircle;
-  user: string;
+  user: any;
   currentFan;
   preset: any;
   currentAir: number;
@@ -37,15 +37,18 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
     switch (this.currentFan) {
       case 'coldSetting':
         settingType = 'Cold';
-        this.updatePreset(1, 80);
+        this.updatePreset(this.user, 80);
+        this.currentAir = 80;
         break;
         case 'goodSetting':
           settingType = 'Good';
-          this.updatePreset(1, 0);
+          this.updatePreset(this.user, 0);
+          this.currentAir = 0;
           break;
           case 'warmSetting':
             settingType = 'Warm';
-            this.updatePreset(1, 20);
+            this.updatePreset(this.user, 20);
+            this.currentAir = 20;
             break;
       }
       /* Refer to the dialog */
@@ -64,6 +67,7 @@ export class FanBasicComponent implements OnInit, AfterViewInit {
   getPreset(id): void {
     this.presetService.getPreset(id).subscribe( data => {
       this.preset = data;
+      this.currentAir = this.preset[0].airflow;
       console.log(this.preset);
     });
   }
