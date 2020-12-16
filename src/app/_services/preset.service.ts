@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 
-const presetUrl = 'http://mentalshowerbackend.ndrejr.dk/api/preset';
+const presetUrl = 'https://mentalshowerbackend.ndrejr.dk/api/preset';
 
 interface Presets {
   airflow: number;
-  user: number;
-  climate_zone: number;
+  user_id: number;
+  zone_id: number;
 }
 
 @Injectable({

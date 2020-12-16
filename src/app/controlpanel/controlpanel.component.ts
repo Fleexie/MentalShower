@@ -6,6 +6,8 @@ import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ShepherdService } from 'angular-shepherd';
 import {QrComponent} from './qr/qr.component';
 import {ZoneSelectComponent} from './zone-select/zone-select.component';
+import {PresetService} from '../_services/preset.service';
+import {TokenStorageService} from '../_services/token-storage.service';
 
 
 @Component({
@@ -18,9 +20,9 @@ export class ControlpanelComponent implements OnInit {
     qrCode = faQrcode;
     question = faQuestionCircle;
     search = faSearch;
-
+  preset: any;
   /** Properties */
-  currentPosition = {
+  position = {
     currentZone: null,
     currentRoom: null
   };
@@ -28,7 +30,9 @@ export class ControlpanelComponent implements OnInit {
   /** Constructor */
   constructor(
     public dialog: MatDialog,
-    private shepherdService: ShepherdService) {}
+    private shepherdService: ShepherdService,
+    private presetService: PresetService,
+    private tokenStorage: TokenStorageService) {}
 
     /* Dialog/Modal for QR Scanner */
     qrScanner(): void{
@@ -137,8 +141,18 @@ export class ControlpanelComponent implements OnInit {
     tourStart(){
         this.shepherdService.start();
     }
+
+    getPresets(): void {
+      this.presetService.getPreset(this.tokenStorage.getUser().id).subscribe( data => {
+        this.preset = data;
+        console.log(this.preset);
+        this.position.currentZone = this.preset[0].zone_id;
+        console.log(this.position);
+      });
+    }
   /** OnInit */
   ngOnInit(): void {
+    this.getPresets();
   }
 
 }

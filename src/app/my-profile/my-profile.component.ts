@@ -3,31 +3,45 @@ import { LoginService } from '../_services/user.service';
 import { InMemoryService } from '../_services/in-memory.service';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
+import {TokenStorageService} from '../_services/token-storage.service';
+import {PresetService} from '../_services/preset.service';
 
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
-  styleUrls: ['../_styles/styles.css', './my-profile.component.css']
+  styleUrls: ['../_styles/styles.css', './my-profile.component.css', '../_styles/button.css']
 })
 export class MyProfileComponent implements OnInit {
-  constructor(private userout: LoginService, private ab: InMemoryService, private router: Router) { }
-
-  airflow = 0;
-  uid = 0;
-  room = 0;
-  zone = 0;
-  name = 'name';
-  email = 'email';
-
+  constructor(
+    private userout: LoginService,
+    private ab: InMemoryService,
+    private router: Router,
+    private tokenService: TokenStorageService,
+    private presetService: PresetService)
+  { }
   userData: any = {
-    airflow: this.airflow,
-    uid: this.uid,
-    room: this.room,
-    zone: this.zone
+    username: this.tokenService.getUser().username,
+    userId: this.tokenService.getUser().id,
+    email: this.tokenService.getUser().email,
+    presets: '2',
+    airflow: null,
+    zone_id: null
   };
-  ngOnInit(): void { }
+  preset: any;
+  getPresets(): void{
+    this.presetService.getPreset(this.userData.userId).subscribe( data => {
+      this.preset = data;
+      console.log(this.preset[0]);
+      this.userData.airflow = this.preset[0].airflow;
+      this.userData.zone_id = this.preset[0].zone_id;
+    });
+  }
+  ngOnInit(): void {
+    this.getPresets();
+  }
   logout() {
     this.router.navigate(['']);
+    this.tokenService.signOut();
   }
   // PresetsByUid(id) {
   //   if (this.authfire.auth.currentUser) {
