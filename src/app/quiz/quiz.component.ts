@@ -17,23 +17,23 @@ export class QuizComponent implements OnInit {
     let quizOver = false;
 
     const questions = [{
-      question: 'What is the purpose of QR Scanner in Ventk2 ?',
+      question: 'What is the purpose of QR Scanner in Vent2u ?',
       choices: ['Set room & Zone automatically', 'Open App', ' Get Registered'],
       correctAnswer: 0
     }, {
-      question: 'Where can you update your Presets ?',
+      question: 'Where can you update your Account Settings ?',
       choices: ['In Checkin', 'In My Profile', 'In Fan Setting'],
       correctAnswer: 1
     }, {
-      question: 'What can you do in VentK2 app ?',
+      question: 'What can you do in Vent2u app ?',
       choices: ['Get Information about weather', 'See college Record', 'Set you Prefer Ventilation units'],
       correctAnswer: 2
     }, {
       question: 'If you are feeling cold, vantilation will increase fan speed ?',
       choices: ['Yes', 'No', 'I dont know'],
-      correctAnswer: 0
+      correctAnswer: 1
     }, {
-      question: 'You have to create account to use Ventk2 system ?',
+      question: 'You have to create account to use Vent2u system ?',
       choices: ['Yes', 'No, I can use as a Guest'],
       correctAnswer: 1
     }];
