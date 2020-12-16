@@ -1,20 +1,23 @@
-.ventk2-project{
-    width: fit-content;
-    margin: 50px auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
+
 h1{
     text-align: center;
-    color: #2D2D4F;
+    color: white;
 }
 #info-tab{
     height: 300px;
 }
 button{
-    background-color: #673ab7;
-    color: white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  border: solid white 1px;
+  padding: .3rem 1.8rem;
+  margin: auto;
+  font-size: 1rem;
+  border-radius: 10px;
+  background-color: rgba(0, 0 ,0, 0.2);
+  box-shadow: 0px 0px 10px rgba(66,66,66,.45);
+  text-shadow: 0px 0px 5px rgba(66,66,66,.75);
 }
 header{
   display: flex;
@@ -33,3 +36,4 @@ header h1{
 .currentSetting{
   font-size: 14pt;
 }
+

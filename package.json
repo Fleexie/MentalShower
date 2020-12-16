@@ -31,6 +31,7 @@
     "@zxing/ngx-scanner": "^3.0.1",
     "angular-shepherd": "^0.7.0",
     "bcryptjs": "^2.4.3",
+    "jquery": "^3.5.1",
     "md5": "^2.3.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

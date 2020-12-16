@@ -28,6 +28,7 @@ import { SignupComponent } from './signup/signup.component';
 import { QrResultComponent } from './controlpanel/qr/qr-result/qr-result.component';
 import { FanSettingComponent } from './fan-setting/fan-setting.component';
 import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
+import { QuizComponent } from './quiz/quiz.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +50,8 @@ import { SeatFilterPipe } from './_pipes/seat-filter.pipe';
     SeatFilterPipe,
     QrComponent,
     NewlearningelementsComponent,
-    InfoComponent
+    InfoComponent,
+    QuizComponent
 
   ],
   imports: [

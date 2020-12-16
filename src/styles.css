@@ -132,3 +132,19 @@ header h1{
     right: 5px;
     border: none !important;
 }
+.ventk2-project{
+    width: fit-content;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(86, 88, 150, 0.51);
+    color:white
+}
+@media only screen and (max-width: 700px) {
+    .ventk2-project{
+     width: 380px;
+     margin-top: 100px;
+    }
+  
+  }
