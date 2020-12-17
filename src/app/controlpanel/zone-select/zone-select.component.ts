@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CheckInService } from '../../_services/check-in.service';
 import { InMemoryService } from '../../_services/in-memory.service';
-import {PresetService} from '../../_services/preset.service';
-import {TokenStorageService} from '../../_services/token-storage.service';
-import {MatDialogRef} from '@angular/material/dialog';
-import {ControlpanelComponent} from '../controlpanel.component';
-
+import { PresetService } from '../../_services/preset.service';
+import { TokenStorageService } from '../../_services/token-storage.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { ControlpanelComponent } from '../controlpanel.component';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-zone-select',
   templateUrl: './zone-select.component.html',
@@ -31,14 +31,16 @@ export class ZoneSelectComponent implements OnInit {
     private presetService: PresetService,
     private inmemory: InMemoryService,
     private tokenStorage: TokenStorageService,
-    public dialogRef: MatDialogRef<ControlpanelComponent>
+    public dialogRef: MatDialogRef<ControlpanelComponent>,
+    private router: Router
   ) { }
-  onNoClick(): void{
+  onNoClick(): void {
     this.dialogRef.close();
+    this.router.navigate(['cp/fanSetting']);
   }
   ngOnInit(): void {
     this.getRooms();
-    if (this.tokenStorage.getToken()){
+    if (this.tokenStorage.getToken()) {
       this.userId = this.tokenStorage.getUser().id;
     }
     this.getPreset();
@@ -77,7 +79,7 @@ export class ZoneSelectComponent implements OnInit {
       console.log(this.seats);
     },
       error => {
-      console.log('fail at getSeat');
+        console.log('fail at getSeat');
       });
   }
   setLocalZone(i) {
@@ -97,20 +99,21 @@ export class ZoneSelectComponent implements OnInit {
   }
   getPreset() {
     this.presetService.getPreset(this.userId).subscribe(data => {
-        this.preset = data;
-        console.log(this.preset);
-        this.position.currentZone = this.preset.zone_id;
-        console.log(this.position.currentZone);
-      },
+      this.preset = data;
+      console.log(this.preset);
+      this.position.currentZone = this.preset.zone_id;
+      console.log(this.position.currentZone);
+    },
       error => {
         console.log('fail at get preset');
       });
   }
-  updatePreset(climateID, userID, roomID){
+  updatePreset(climateID, userID, roomID) {
     const data = {
       zone_id: climateID,
       room_id: roomID
     };
     this.presetService.putPresets(userID, data).subscribe(response => { console.log(data, 'updated'); });
+    this.inmemory.zone = data.zone_id;
   }
 }
