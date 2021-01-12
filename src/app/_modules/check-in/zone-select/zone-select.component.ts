@@ -1,15 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { CheckInService } from '../../_services/check-in.service';
-import { InMemoryService } from '../../_services/in-memory.service';
-import { PresetService } from '../../_services/preset.service';
-import { TokenStorageService } from '../../_services/token-storage.service';
+import { CheckInService } from '../../../_services/check-in.service';
+import { InMemoryService } from '../../../_services/in-memory.service';
+import { PresetService } from '../../../_services/preset.service';
+import { TokenStorageService } from '../../../_services/token-storage.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ControlpanelComponent } from '../controlpanel.component';
 import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-zone-select',
   templateUrl: './zone-select.component.html',
-  styleUrls: ['./zone-select.component.css', '../../_styles/button.css']
+  styleUrls: ['./zone-select.component.css', '../../../_styles/button.css']
 })
 export class ZoneSelectComponent implements OnInit {
   /** Two Way Properties */

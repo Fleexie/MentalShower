@@ -1,20 +1,20 @@
 import {Component, Inject, OnInit, AfterViewInit} from '@angular/core';
 import {faQrcode, faQuestionCircle, faSearch} from '@fortawesome/free-solid-svg-icons';
 
-import { CheckInService } from '../_services/check-in.service';
+import { CheckInService } from '../../_services/check-in.service';
 import { MatDialog, MatDialogRef} from '@angular/material/dialog';
 import { ShepherdService } from 'angular-shepherd';
 import {QrComponent} from './qr/qr.component';
 import {ZoneSelectComponent} from './zone-select/zone-select.component';
-import {PresetService} from '../_services/preset.service';
-import {TokenStorageService} from '../_services/token-storage.service';
+import {PresetService} from '../../_services/preset.service';
+import {TokenStorageService} from '../../_services/token-storage.service';
 
 
 @Component({
   selector: 'app-controlpanel',
   templateUrl: './controlpanel.component.html',
   styleUrls: ['./controlpanel.component.css',
-  '../_styles/styles.css']
+  '../../_styles/styles.css']
 })
 export class ControlpanelComponent implements OnInit {
     qrCode = faQrcode;

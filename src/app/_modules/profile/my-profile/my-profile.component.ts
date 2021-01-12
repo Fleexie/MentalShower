@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../_services/user.service';
-import { InMemoryService } from '../_services/in-memory.service';
+import { LoginService } from '../../../_services/user.service';
+import { InMemoryService } from '../../../_services/in-memory.service';
 import { faThumbsDown } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Router } from '@angular/router';
-import {TokenStorageService} from '../_services/token-storage.service';
-import {PresetService} from '../_services/preset.service';
+import {TokenStorageService} from '../../../_services/token-storage.service';
+import {PresetService} from '../../../_services/preset.service';
 
 @Component({
   selector: 'app-my-profile',
   templateUrl: './my-profile.component.html',
-  styleUrls: ['../_styles/styles.css', './my-profile.component.css', '../_styles/button.css']
+  styleUrls: ['../../../_styles/styles.css', './my-profile.component.css', '../../../_styles/button.css']
 })
 export class MyProfileComponent implements OnInit {
   constructor(
